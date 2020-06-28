@@ -22,6 +22,7 @@ public class MovieDetailsActivity extends AppCompatActivity {
     TextView tvOverview;
     RatingBar rbVotingAverage;
     TextView adult;
+    TextView pScore;
 
 
     @Override
@@ -37,6 +38,7 @@ public class MovieDetailsActivity extends AppCompatActivity {
         tvOverview = (TextView) findViewById(R.id.tvOverview);
         rbVotingAverage = (RatingBar) findViewById(R.id.rbVoteAverage);
         adult = (TextView) findViewById(R.id.adult);
+        pScore = (TextView) findViewById(R.id.pScore);
 
         //unwrap movie passed in as intent, and use simple name as key
         movie = (Movie) Parcels.unwrap(getIntent().getParcelableExtra(Movie.class.getSimpleName()));
@@ -56,6 +58,8 @@ public class MovieDetailsActivity extends AppCompatActivity {
         } else {
             adult.setText("Anyone can watch");
         }
+
+        pScore.setText("Popularity Score: "+ movie.getpScore());
 
     }
 }
